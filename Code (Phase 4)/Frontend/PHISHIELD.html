@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PhishShield — URL Security</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="shield-icon">
+                🛡
+            </div>
+
+            <div class="logo-text">
+                <span class="phish">Phish</span><span class="shield">Shield</span>
+            </div>
+
+        </div>
+
+
+        <div class="menu-title">
+            MAIN MENU
+        </div>
+
+
+        <nav>
+
+            <a href="#" class="menu-item active" data-page="scanner">
+
+                <span class="menu-icon">⌕</span>
+
+                <span>Scanner</span>
+
+            </a>
+
+
+            <a href="#" class="menu-item" data-page="history">
+
+                <span class="menu-icon">◷</span>
+
+                <span>History</span>
+
+            </a>
+
+
+            <a href="#" class="menu-item" data-page="how">
+
+                <span class="menu-icon">◇</span>
+
+                <span>How it works</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <span class="green-dot"></span>
+
+            <span>INPUT READY</span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="breadcrumb">
+
+                <strong>URL Security</strong>
+
+                <span>/</span>
+
+                <span id="breadcrumbPage">
+                    Scanner
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= SCANNER PAGE ================= -->
+
+        <section id="scannerPage" class="page active-page">
+
+            <div class="content">
+
+
+                <!-- HEADING -->
+
+                <div class="page-heading">
+
+                    <div class="small-heading">
+                        URL SECURITY SCANNER
+                    </div>
+
+                    <h1>
+                        Check a website before you click.
+                    </h1>
+
+                    <p>
+                        Enter a website URL below. PhishShield receives the input and displays the submitted URL.
+                    </p>
+
+                </div>
+
+
+                <!-- SCANNER -->
+
+                <div class="scanner-layout">
+
+
+                    <!-- URL CARD -->
+
+                    <div class="url-card">
+
+                        <div class="url-card-header">
+
+                            <div>
+
+                                <h2>
+                                    Website URL
+                                </h2>
+
+                                <p>
+                                    Paste the address you want PhishShield to receive.
+                                </p>
+
+                            </div>
+
+
+                            <div class="link-icon">
+                                🔗
+                            </div>
+
+                        </div>
+
+
+                        <label>
+                            ENTER URL
+                        </label>
+
+
+                        <div class="url-input-area">
+
+                            <input
+                                type="text"
+                                id="urlInput"
+                                placeholder="https://example.com"
+                            >
+
+
+                            <button id="receiveButton">
+                                Receive URL →
+                            </button>
+
+                        </div>
+
+
+                        <p class="input-help">
+                            Enter any website address and click Receive URL.
+                        </p>
+
+                    </div>
+
+
+                    <!-- WORKFLOW -->
+
+                    <div class="workflow-card">
+
+                        <h2>
+                            Simple workflow
+                        </h2>
+
+
+                        <div class="workflow-step">
+
+                            <div class="step-number blue">
+                                01
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Enter
+                                </h3>
+
+                                <p>
+                                    Paste the website URL.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="workflow-line"></div>
+
+
+                        <div class="workflow-step">
+
+                            <div class="step-number purple">
+                                02
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Receive
+                                </h3>
+
+                                <p>
+                                    Frontend receives the input.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="workflow-line"></div>
+
+
+                        <div class="workflow-step">
+
+                            <div class="step-number orange">
+                                03
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Process later
+                                </h3>
+
+                                <p>
+                                    Backend can be connected later.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="status-grid">
+
+
+                    <div class="status-card blue-card">
+
+                        <p>
+                            Total Inputs
+                        </p>
+
+                        <h2 id="totalInputs">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                    <div class="status-card red-card">
+
+                        <p>
+                            Last Input
+                        </p>
+
+                        <h2 id="lastInput">
+                            —
+                        </h2>
+
+                    </div>
+
+
+                    <div class="status-card green-card">
+
+                        <p>
+                            Interface
+                        </p>
+
+                        <h2>
+                            Ready
+                        </h2>
+
+                    </div>
+
+
+                    <div class="status-card purple-card">
+
+                        <p>
+                            Backend
+                        </p>
+
+                        <h2>
+                            Not Connected
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= HISTORY PAGE ================= -->
+
+        <section id="historyPage" class="page">
+
+            <div class="content">
+
+                <div class="page-heading">
+
+                    <div class="small-heading">
+                        URL HISTORY
+                    </div>
+
+                    <h1>
+                        Scan History
+                    </h1>
+
+                    <p>
+                        View the URLs that have been submitted to PhishShield.
+                    </p>
+
+                </div>
+
+
+                <div class="history-card">
+
+                    <div class="history-header">
+
+                        <h2>
+                            Recent URL Inputs
+                        </h2>
+
+                        <button id="clearHistory">
+                            Clear History
+                        </button>
+
+                    </div>
+
+
+                    <div class="history-table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        #
+                                    </th>
+
+                                    <th>
+                                        Website URL
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Time
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="historyTable">
+
+                                <!-- JavaScript adds history here -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section id="howPage" class="page">
+
+            <div class="content">
+
+                <div class="page-heading">
+
+                    <div class="small-heading">
+                        PHISHSHIELD
+                    </div>
+
+                    <h1>
+                        How PhishShield Works
+                    </h1>
+
+                    <p>
+                        Understand how a URL moves through the PhishShield security system.
+                    </p>
+
+                </div>
+
+
+                <div class="how-grid">
+
+
+                    <div class="how-card">
+
+                        <div class="how-number">
+                            01
+                        </div>
+
+                        <div class="how-icon">
+                            🔗
+                        </div>
+
+                        <h2>
+                            Enter a URL
+                        </h2>
+
+                        <p>
+                            Enter the website address that you want to check in the PhishShield scanner.
+                        </p>
+
+                    </div>
+
+
+                    <div class="how-card">
+
+                        <div class="how-number">
+                            02
+                        </div>
+
+                        <div class="how-icon">
+                            🔍
+                        </div>
+
+                        <h2>
+                            Analyze the URL
+                        </h2>
+
+                        <p>
+                            The submitted URL can be passed to the backend for feature extraction and security analysis.
+                        </p>
+
+                    </div>
+
+
+                    <div class="how-card">
+
+                        <div class="how-number">
+                            03
+                        </div>
+
+                        <div class="how-icon">
+                            🤖
+                        </div>
+
+                        <h2>
+                            Machine Learning
+                        </h2>
+
+                        <p>
+                            The machine-learning model evaluates URL characteristics to identify potentially suspicious websites.
+                        </p>
+
+                    </div>
+
+
+                    <div class="how-card">
+
+                        <div class="how-number">
+                            04
+                        </div>
+
+                        <div class="how-icon">
+                            🛡️
+                        </div>
+
+                        <h2>
+                            Security Result
+                        </h2>
+
+                        <p>
+                            The system can return a classification such as Safe, Suspicious, or Phishing along with a confidence score.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FLOW -->
+
+                <div class="flow-card">
+
+                    <h2>
+                        PhishShield Detection Flow
+                    </h2>
+
+
+                    <div class="flow">
+
+                        <div class="flow-box">
+                            Website URL
+                        </div>
+
+                        <span>→</span>
+
+                        <div class="flow-box">
+                            Feature Extraction
+                        </div>
+
+                        <span>→</span>
+
+                        <div class="flow-box">
+                            ML Model
+                        </div>
+
+                        <span>→</span>
+
+                        <div class="flow-box result">
+                            Security Result
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

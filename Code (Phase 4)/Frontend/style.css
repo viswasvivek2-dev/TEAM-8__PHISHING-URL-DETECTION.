@@ -1,0 +1,1314 @@
+/* ==============================
+   BASIC SETTINGS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f8fc;
+
+    color: #101827;
+
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   SIDEBAR
+================================= */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 295px;
+
+    height: 100vh;
+
+    background: linear-gradient(
+        180deg,
+        #091321,
+        #07101d
+    );
+
+    color: white;
+
+    padding: 40px 32px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-right: 1px solid #172337;
+}
+
+
+/* ==============================
+   LOGO
+================================= */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 55px;
+}
+
+
+.shield-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #0575ff,
+        #0058d9
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 8px 20px rgba(
+            0,
+            110,
+            255,
+            0.3
+        );
+}
+
+
+.logo-text {
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+.phish {
+    color: white;
+}
+
+.shield {
+    color: #1680ff;
+}
+
+
+/* ==============================
+   MENU TITLE
+================================= */
+
+.menu-title {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #7e8da5;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+
+/* ==============================
+   MENU
+================================= */
+
+nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.menu-item {
+
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 0 18px;
+
+    text-decoration: none;
+
+    color: #8290a5;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+
+.menu-item:hover {
+
+    color: white;
+
+    background: #12243b;
+}
+
+
+.menu-item.active {
+
+    color: white;
+
+    background: linear-gradient(
+        90deg,
+        #153c70,
+        #173b68
+    );
+
+    border-left: 3px solid #1684ff;
+
+    box-shadow:
+        0 5px 20px rgba(
+            0,
+            100,
+            255,
+            0.12
+        );
+}
+
+
+.menu-icon {
+
+    font-size: 20px;
+
+    width: 20px;
+
+    text-align: center;
+}
+
+
+/* ==============================
+   SIDEBAR BOTTOM
+================================= */
+
+.sidebar-bottom {
+
+    margin-top: auto;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #203047;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    color: #bdc7d6;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.green-dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #28d68e;
+
+    box-shadow:
+        0 0 8px rgba(
+            40,
+            214,
+            142,
+            0.8
+        );
+}
+
+
+/* ==============================
+   MAIN
+================================= */
+
+.main {
+
+    margin-left: 295px;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7faff 0%,
+            #eef5fb 100%
+        );
+}
+
+
+/* ==============================
+   TOP BAR
+================================= */
+
+.topbar {
+
+    height: 92px;
+
+    background: white;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 42px;
+}
+
+
+.breadcrumb {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    font-size: 17px;
+}
+
+
+.breadcrumb strong {
+
+    color: #101827;
+}
+
+
+.breadcrumb span {
+
+    color: #6d7c91;
+}
+
+
+/* ==============================
+   CONTENT
+================================= */
+
+.content {
+
+    padding: 65px 42px;
+
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+
+/* ==============================
+   HEADING
+================================= */
+
+.page-heading {
+
+    margin-bottom: 34px;
+}
+
+
+.small-heading {
+
+    color: #0875ee;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 14px;
+}
+
+
+.page-heading h1 {
+
+    font-size: 35px;
+
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+
+    color: #0c1422;
+}
+
+
+.page-heading p {
+
+    font-size: 15px;
+
+    color: #65758c;
+}
+
+
+/* ==============================
+   SCANNER LAYOUT
+================================= */
+
+.scanner-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2.8fr)
+        minmax(280px, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+
+/* ==============================
+   URL CARD
+================================= */
+
+.url-card {
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 30px;
+
+    border: 1px solid #e1e8f0;
+
+    box-shadow:
+        0 8px 30px rgba(
+            30,
+            60,
+            100,
+            0.04
+        );
+}
+
+
+.url-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 30px;
+}
+
+
+.url-card h2 {
+
+    font-size: 23px;
+
+    margin-bottom: 8px;
+}
+
+
+.url-card-header p {
+
+    color: #718197;
+
+    font-size: 14px;
+}
+
+
+.link-icon {
+
+    width: 54px;
+
+    height: 54px;
+
+    border-radius: 12px;
+
+    background: #eef4fb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 23px;
+
+    color: #65748b;
+}
+
+
+/* ==============================
+   INPUT LABEL
+================================= */
+
+.url-card label {
+
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    color: #526176;
+
+    margin-bottom: 10px;
+}
+
+
+/* ==============================
+   INPUT AREA
+================================= */
+
+.url-input-area {
+
+    display: flex;
+
+    gap: 15px;
+}
+
+
+.url-input-area input {
+
+    flex: 1;
+
+    height: 61px;
+
+    border-radius: 10px;
+
+    border: 1px solid #d8e1ec;
+
+    padding: 0 17px;
+
+    font-size: 15px;
+
+    color: #33445a;
+
+    outline: none;
+
+    background: white;
+
+    transition: 0.2s;
+}
+
+
+.url-input-area input:focus {
+
+    border-color: #147bff;
+
+    box-shadow:
+        0 0 0 3px rgba(
+            20,
+            123,
+            255,
+            0.08
+        );
+}
+
+
+.url-input-area input::placeholder {
+
+    color: #8a98aa;
+}
+
+
+/* ==============================
+   BUTTON
+================================= */
+
+.url-input-area button {
+
+    width: 168px;
+
+    height: 61px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #147cff,
+        #0765e7
+    );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(
+            0,
+            105,
+            240,
+            0.22
+        );
+
+    transition: 0.2s;
+}
+
+
+.url-input-area button:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 25px rgba(
+            0,
+            105,
+            240,
+            0.3
+        );
+}
+
+
+/* ==============================
+   INPUT HELP
+================================= */
+
+.input-help {
+
+    color: #78879b;
+
+    font-size: 12px;
+
+    margin-top: 13px;
+}
+
+
+/* ==============================
+   WORKFLOW CARD
+================================= */
+
+.workflow-card {
+
+    background: white;
+
+    border: 1px solid #e1e8f0;
+
+    border-radius: 14px;
+
+    padding: 27px 25px;
+
+    box-shadow:
+        0 8px 30px rgba(
+            30,
+            60,
+            100,
+            0.04
+        );
+}
+
+
+.workflow-card h2 {
+
+    font-size: 17px;
+
+    margin-bottom: 23px;
+}
+
+
+.workflow-step {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+.step-number {
+
+    width: 35px;
+
+    height: 35px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+.blue {
+    background: #1175e8;
+}
+
+.purple {
+    background: #5850e9;
+}
+
+.orange {
+    background: #ef9500;
+}
+
+
+.workflow-step h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.workflow-step p {
+
+    font-size: 11px;
+
+    color: #7b899d;
+}
+
+
+.workflow-line {
+
+    height: 1px;
+
+    background: #e8edf3;
+
+    margin: 17px 0 17px 51px;
+}
+
+
+/* ==============================
+   STATUS GRID
+================================= */
+
+.status-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+
+/* ==============================
+   STATUS CARD
+================================= */
+
+.status-card {
+
+    min-height: 122px;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    border: 1px solid;
+
+}
+
+
+.status-card p {
+
+    color: #63738a;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+
+.status-card h2 {
+
+    font-size: 27px;
+
+    font-weight: bold;
+}
+
+
+/* ==============================
+   CARD COLORS
+================================= */
+
+.blue-card {
+
+    background: #f0f7ff;
+
+    border-color: #d4e7fc;
+}
+
+
+.blue-card h2 {
+
+    color: #0872e9;
+}
+
+
+.red-card {
+
+    background: #fff3f4;
+
+    border-color: #f6dce0;
+}
+
+
+.red-card h2 {
+
+    color: #e23845;
+}
+
+
+.green-card {
+
+    background: #effbf5;
+
+    border-color: #d4f0e2;
+}
+
+
+.green-card h2 {
+
+    color: #13a65d;
+}
+
+
+.purple-card {
+
+    background: #f5f3ff;
+
+    border-color: #e1dcfa;
+}
+
+
+.purple-card h2 {
+
+    color: #5047e5;
+
+    font-size: 25px;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 1050px) {
+
+    .sidebar {
+
+        width: 230px;
+    }
+
+    .main {
+
+        margin-left: 230px;
+    }
+
+    .scanner-layout {
+
+        grid-template-columns: 1fr;
+    }
+
+    .status-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        padding: 20px;
+    }
+
+    .logo {
+
+        margin-bottom: 25px;
+    }
+
+    nav {
+
+        flex-direction: row;
+    }
+
+    .menu-item {
+
+        flex: 1;
+
+        justify-content: center;
+    }
+
+    .sidebar-bottom {
+
+        display: none;
+    }
+
+    .main {
+
+        margin-left: 0;
+    }
+
+    .content {
+
+        padding: 35px 20px;
+    }
+
+    .page-heading h1 {
+
+        font-size: 28px;
+    }
+
+    .url-input-area {
+
+        flex-direction: column;
+    }
+
+    .url-input-area button {
+
+        width: 100%;
+    }
+
+    .status-grid {
+
+        grid-template-columns: 1fr;
+    }
+}/* ==========================================
+   PAGE SWITCHING
+========================================== */
+
+.page {
+    display: none;
+}
+
+.page.active-page {
+    display: block;
+}
+
+
+/* ==========================================
+   HISTORY
+========================================== */
+
+.history-card {
+
+    background: white;
+
+    border: 1px solid #e1e8f0;
+
+    border-radius: 14px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 30px rgba(
+            30,
+            60,
+            100,
+            0.04
+        );
+}
+
+
+.history-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.history-header h2 {
+
+    font-size: 20px;
+
+    color: #111827;
+}
+
+
+#clearHistory {
+
+    border: none;
+
+    background: #fff0f1;
+
+    color: #e23947;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+#clearHistory:hover {
+
+    background: #ffe0e3;
+}
+
+
+.history-table-container {
+
+    overflow-x: auto;
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+thead {
+
+    background: #f6f9fc;
+}
+
+
+th {
+
+    text-align: left;
+
+    padding: 15px;
+
+    font-size: 11px;
+
+    color: #68788e;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+td {
+
+    padding: 17px 15px;
+
+    border-top: 1px solid #edf1f5;
+
+    font-size: 13px;
+
+    color: #34445a;
+}
+
+
+.url-history {
+
+    color: #126fe8;
+
+    font-weight: 500;
+}
+
+
+.status-received {
+
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #eaf8f1;
+
+    color: #15945b;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+
+.empty-history {
+
+    text-align: center;
+
+    padding: 50px !important;
+
+    color: #8997a9;
+
+}
+
+
+/* ==========================================
+   HOW IT WORKS
+========================================== */
+
+.how-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+.how-card {
+
+    position: relative;
+
+    background: white;
+
+    border: 1px solid #e1e8f0;
+
+    border-radius: 14px;
+
+    padding: 27px;
+
+    min-height: 250px;
+
+    box-shadow:
+        0 8px 30px rgba(
+            30,
+            60,
+            100,
+            0.04
+        );
+
+    transition: 0.2s;
+}
+
+
+.how-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(
+            30,
+            60,
+            100,
+            0.08
+        );
+}
+
+
+.how-number {
+
+    color: #0876ed;
+
+    font-weight: bold;
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.how-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 12px;
+
+    background: #edf5ff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 23px;
+
+    margin-bottom: 20px;
+}
+
+
+.how-card h2 {
+
+    font-size: 17px;
+
+    margin-bottom: 10px;
+
+    color: #101827;
+}
+
+
+.how-card p {
+
+    color: #718197;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   FLOW CARD
+========================================== */
+
+.flow-card {
+
+    background: white;
+
+    border: 1px solid #e1e8f0;
+
+    border-radius: 14px;
+
+    padding: 30px;
+}
+
+
+.flow-card h2 {
+
+    font-size: 19px;
+
+    margin-bottom: 25px;
+}
+
+
+.flow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.flow-box {
+
+    padding: 16px 22px;
+
+    border-radius: 9px;
+
+    background: #edf5ff;
+
+    border: 1px solid #d6e8fc;
+
+    color: #116bd4;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.flow-box.result {
+
+    background: #eaf8f1;
+
+    border-color: #cceedd;
+
+    color: #13925a;
+}
+
+
+.flow span {
+
+    font-size: 20px;
+
+    color: #8b9aac;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .how-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .how-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .flow {
+
+        flex-direction: column;
+    }
+
+    .flow span {
+
+        transform: rotate(90deg);
+    }
+
+}
