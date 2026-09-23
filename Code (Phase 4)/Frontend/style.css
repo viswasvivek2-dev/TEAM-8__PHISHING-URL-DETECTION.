@@ -1307,8 +1307,325 @@ td {
     }
 
     .flow span {
-
         transform: rotate(90deg);
     }
+}
 
+/* ==========================================
+   REAL-TIME SCAN RESULT CARD & RISK METER
+========================================== */
+
+.scan-result-container {
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.scan-result-container.hidden {
+    display: none;
+}
+
+.result-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #e1e9f5;
+    box-shadow: 0 10px 30px rgba(15, 34, 64, 0.06);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #10b981;
+}
+
+.result-card.is-phishing::before {
+    background: #ef4444;
+}
+
+.result-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #edf2f7;
+    margin-bottom: 24px;
+}
+
+.result-badge-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.verdict-icon {
+    font-size: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    background: #ecfdf5;
+}
+
+.result-card.is-phishing .verdict-icon {
+    background: #fef2f2;
+}
+
+.verdict-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #065f46;
+}
+
+.result-card.is-phishing .verdict-title {
+    color: #991b1b;
+}
+
+.verdict-subtitle {
+    font-size: 14px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+.risk-pill {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.risk-pill.safe {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.risk-pill.phishing {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
+}
+
+.risk-pill.suspicious {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+.result-metrics-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+    .result-metrics-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.metric-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.metric-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.metric-value.url-display {
+    font-size: 14px;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.metric-value.success-text {
+    color: #059669;
+}
+
+.metric-value.danger-text {
+    color: #dc2626;
+}
+
+.confidence-bar-wrapper {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 24px;
+}
+
+.bar-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 10px;
+}
+
+.confidence-track {
+    width: 100%;
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 9999px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.result-card.is-phishing .confidence-fill {
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+}
+
+.features-summary-section h3 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #475569;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.feature-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feature-chip {
+    background: #edf5ff;
+    border: 1px solid #d0e3fc;
+    color: #1e40af;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.feature-chip.warning-chip {
+    background: #fff7ed;
+    border-color: #ffedd5;
+    color: #c2410c;
+}
+
+.feature-chip.danger-chip {
+    background: #fef2f2;
+    border-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.feature-chip.success-chip {
+    background: #f0fdf4;
+    border-color: #dcfce7;
+    color: #15803d;
+}
+
+/* History Badges */
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.badge-legitimate {
+    background: #dcfce7;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+
+.badge-phishing {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+}
+
+/* Status Dots */
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.green-dot {
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981;
+}
+
+.red-dot {
+    background: #ef4444;
+    box-shadow: 0 0 10px #ef4444;
+}
+
+.yellow-dot {
+    background: #f59e0b;
+    box-shadow: 0 0 10px #f59e0b;
+}
+
+.truncate-text {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-loading {
+    opacity: 0.7;
+    pointer-events: none;
+    cursor: wait;
 }

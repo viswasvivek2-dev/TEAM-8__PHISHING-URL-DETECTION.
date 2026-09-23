@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PhishShield — URL Security</title>
+    <title>PhishShield — AI-Powered URL Phishing Detection</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -67,9 +67,9 @@
 
         <div class="sidebar-bottom">
 
-            <span class="green-dot"></span>
+            <span class="status-dot green-dot" id="sidebarDot"></span>
 
-            <span>INPUT READY</span>
+            <span id="sidebarStatus">CONNECTING...</span>
 
         </div>
 
@@ -112,7 +112,7 @@
                 <div class="page-heading">
 
                     <div class="small-heading">
-                        URL SECURITY SCANNER
+                        AI-POWERED PHISHING DETECTION
                     </div>
 
                     <h1>
@@ -120,7 +120,7 @@
                     </h1>
 
                     <p>
-                        Enter a website URL below. PhishShield receives the input and displays the submitted URL.
+                        Analyze URLs with a trained machine learning pipeline utilizing 56+ structural, security, and content features from the PhiUSIIL dataset.
                     </p>
 
                 </div>
@@ -144,7 +144,7 @@
                                 </h2>
 
                                 <p>
-                                    Paste the address you want PhishShield to receive.
+                                    Paste the address you want PhishShield to inspect.
                                 </p>
 
                             </div>
@@ -157,7 +157,7 @@
                         </div>
 
 
-                        <label>
+                        <label for="urlInput">
                             ENTER URL
                         </label>
 
@@ -168,18 +168,19 @@
                                 type="text"
                                 id="urlInput"
                                 placeholder="https://example.com"
+                                autocomplete="off"
                             >
 
 
                             <button id="receiveButton">
-                                Receive URL →
+                                Scan URL →
                             </button>
 
                         </div>
 
 
                         <p class="input-help">
-                            Enter any website address and click Receive URL.
+                            Enter any URL (e.g., https://paypal.com or http://suspicious-login.xyz) and click Scan URL.
                         </p>
 
                     </div>
@@ -190,7 +191,7 @@
                     <div class="workflow-card">
 
                         <h2>
-                            Simple workflow
+                            ML Detection Pipeline
                         </h2>
 
 
@@ -203,11 +204,11 @@
                             <div>
 
                                 <h3>
-                                    Enter
+                                    URL Input
                                 </h3>
 
                                 <p>
-                                    Paste the website URL.
+                                    Capture target URL & parse domains.
                                 </p>
 
                             </div>
@@ -227,11 +228,11 @@
                             <div>
 
                                 <h3>
-                                    Receive
+                                    Feature Extraction
                                 </h3>
 
                                 <p>
-                                    Frontend receives the input.
+                                    Extract 56+ structural & HTML attributes.
                                 </p>
 
                             </div>
@@ -251,15 +252,86 @@
                             <div>
 
                                 <h3>
-                                    Process later
+                                    ML Classification
                                 </h3>
 
                                 <p>
-                                    Backend can be connected later.
+                                    Real-time inference & confidence score.
                                 </p>
 
                             </div>
 
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= REAL-TIME SCAN RESULT CARD ================= -->
+
+                <div id="scanResultContainer" class="scan-result-container hidden">
+
+                    <div class="result-card" id="resultCard">
+
+                        <div class="result-card-header">
+
+                            <div class="result-badge-area">
+                                <span class="verdict-icon" id="verdictIcon">🛡️</span>
+                                <div>
+                                    <div class="verdict-title" id="verdictTitle">LEGITIMATE WEBSITE</div>
+                                    <div class="verdict-subtitle" id="verdictSubtitle">This URL matches patterns of safe, verified domains.</div>
+                                </div>
+                            </div>
+
+                            <div class="risk-pill" id="riskPill">
+                                SAFE
+                            </div>
+
+                        </div>
+
+
+                        <div class="result-metrics-grid">
+
+                            <div class="metric-box">
+                                <span class="metric-label">Target URL</span>
+                                <span class="metric-value url-display" id="resUrl">—</span>
+                            </div>
+
+                            <div class="metric-box">
+                                <span class="metric-label">Model Confidence</span>
+                                <span class="metric-value" id="resConfidence">99.8%</span>
+                            </div>
+
+                            <div class="metric-box">
+                                <span class="metric-label">Phishing Probability</span>
+                                <span class="metric-value danger-text" id="resPhishProb">0.2%</span>
+                            </div>
+
+                            <div class="metric-box">
+                                <span class="metric-label">Legitimate Probability</span>
+                                <span class="metric-value success-text" id="resLegitProb">99.8%</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="confidence-bar-wrapper">
+                            <div class="bar-header">
+                                <span>Risk Level Evaluation</span>
+                                <span id="barPercentage">Confidence: 99.8%</span>
+                            </div>
+                            <div class="confidence-track">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="features-summary-section">
+                            <h3>Key Extracted Feature Signals</h3>
+                            <div class="feature-chips" id="featureChips">
+                                <!-- Populated dynamically by JS -->
+                            </div>
                         </div>
 
                     </div>
@@ -275,7 +347,7 @@
                     <div class="status-card blue-card">
 
                         <p>
-                            Total Inputs
+                            Total Scans
                         </p>
 
                         <h2 id="totalInputs">
@@ -288,10 +360,10 @@
                     <div class="status-card red-card">
 
                         <p>
-                            Last Input
+                            Last Scanned
                         </p>
 
-                        <h2 id="lastInput">
+                        <h2 id="lastInput" class="truncate-text">
                             —
                         </h2>
 
@@ -301,24 +373,24 @@
                     <div class="status-card green-card">
 
                         <p>
-                            Interface
+                            Last Verdict
                         </p>
 
-                        <h2>
+                        <h2 id="lastVerdict">
                             Ready
                         </h2>
 
                     </div>
 
 
-                    <div class="status-card purple-card">
+                    <div class="status-card purple-card" id="backendCard">
 
                         <p>
-                            Backend
+                            ML Backend Engine
                         </p>
 
-                        <h2>
-                            Not Connected
+                        <h2 id="backendStatus">
+                            Online
                         </h2>
 
                     </div>
@@ -340,7 +412,7 @@
                 <div class="page-heading">
 
                     <div class="small-heading">
-                        URL HISTORY
+                        URL AUDIT LOG
                     </div>
 
                     <h1>
@@ -348,7 +420,7 @@
                     </h1>
 
                     <p>
-                        View the URLs that have been submitted to PhishShield.
+                        View the complete history of analyzed websites and their security verdicts.
                     </p>
 
                 </div>
@@ -359,7 +431,7 @@
                     <div class="history-header">
 
                         <h2>
-                            Recent URL Inputs
+                            Recent Scans
                         </h2>
 
                         <button id="clearHistory">
@@ -386,7 +458,11 @@
                                     </th>
 
                                     <th>
-                                        Status
+                                        Verdict
+                                    </th>
+
+                                    <th>
+                                        Confidence
                                     </th>
 
                                     <th>
@@ -425,7 +501,7 @@
                 <div class="page-heading">
 
                     <div class="small-heading">
-                        PHISHSHIELD
+                        ARCHITECTURE & ML
                     </div>
 
                     <h1>
@@ -433,7 +509,7 @@
                     </h1>
 
                     <p>
-                        Understand how a URL moves through the PhishShield security system.
+                        Understand how our multi-stage pipeline extracts 56+ features and runs machine learning inference.
                     </p>
 
                 </div>
@@ -457,7 +533,7 @@
                         </h2>
 
                         <p>
-                            Enter the website address that you want to check in the PhishShield scanner.
+                            Submit any domain or web link to initiate real-time inspection.
                         </p>
 
                     </div>
@@ -474,11 +550,11 @@
                         </div>
 
                         <h2>
-                            Analyze the URL
+                            Feature Extraction
                         </h2>
 
                         <p>
-                            The submitted URL can be passed to the backend for feature extraction and security analysis.
+                            Computes URL length, character ratios, IP presence, shorteners, special characters, and HTML page structure.
                         </p>
 
                     </div>
@@ -499,7 +575,7 @@
                         </h2>
 
                         <p>
-                            The machine-learning model evaluates URL characteristics to identify potentially suspicious websites.
+                            Evaluated across TF-IDF character n-grams, One-Hot TLD encoding, and 56 normalized numerical signals.
                         </p>
 
                     </div>
@@ -516,11 +592,11 @@
                         </div>
 
                         <h2>
-                            Security Result
+                            Security Verdict
                         </h2>
 
                         <p>
-                            The system can return a classification such as Safe, Suspicious, or Phishing along with a confidence score.
+                            Instant threat classification: Legitimate or Phishing with exact probability and risk breakdown.
                         </p>
 
                     </div>
@@ -533,7 +609,7 @@
                 <div class="flow-card">
 
                     <h2>
-                        PhishShield Detection Flow
+                        PhishShield End-to-End Flow
                     </h2>
 
 
@@ -546,19 +622,19 @@
                         <span>→</span>
 
                         <div class="flow-box">
-                            Feature Extraction
+                            Feature Extractor (56 Features)
                         </div>
 
                         <span>→</span>
 
                         <div class="flow-box">
-                            ML Model
+                            ML Pipeline (ColumnTransformer)
                         </div>
 
                         <span>→</span>
 
                         <div class="flow-box result">
-                            Security Result
+                            Threat Assessment
                         </div>
 
                     </div>
