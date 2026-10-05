@@ -1312,3 +1312,173 @@ td {
     }
 
 }
+
+
+/* ==========================================
+   SCAN RESULT CARD & BADGES
+========================================== */
+
+.hidden {
+    display: none !important;
+}
+
+.result-card {
+    margin-top: 24px;
+    padding: 22px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.result-badge-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.verdict-icon {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.verdict-badge {
+    font-size: 17px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.verdict-badge.safe {
+    background: #e6f9f0;
+    color: #0d8a50;
+    border: 1px solid #bbf0d7;
+}
+
+.verdict-badge.danger {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.verdict-url {
+    font-size: 13px;
+    color: #64748b;
+    word-break: break-all;
+    max-width: 420px;
+}
+
+.confidence-box {
+    text-align: right;
+}
+
+.confidence-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.confidence-val {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.meter-container {
+    margin-top: 16px;
+}
+
+.meter-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.meter-bar {
+    width: 100%;
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.meter-fill.safe {
+    background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.meter-fill.danger {
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+}
+
+.indicators-section {
+    margin-top: 18px;
+    padding: 14px;
+    background: #fffbeb;
+    border-radius: 10px;
+    border: 1px solid #fef3c7;
+}
+
+.indicators-section h4 {
+    font-size: 13px;
+    color: #b45309;
+    margin-bottom: 8px;
+}
+
+.indicators-list {
+    margin-left: 20px;
+    font-size: 12.5px;
+    color: #92400e;
+    line-height: 1.6;
+}
+
+/* History table status badges */
+.status-safe {
+    background: #e6f9f0;
+    color: #0d8a50;
+    border: 1px solid #bbf0d7;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.status-phishing {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+}
